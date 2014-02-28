@@ -45,7 +45,11 @@
 }
 
 + (NSArray*) decodeList:(NSString *)str {
-    
+    NSString* firstChar = [str substringToIndex:1];
+    NSString* lastChar = [str substringFromIndex:[str length] - 1];
+    if (![firstChar isEqualToString:@"l"] || ![lastChar isEqualToString:@"e"]) {
+        return nil;
+    }
     return nil;
 }
 
