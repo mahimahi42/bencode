@@ -16,6 +16,29 @@
     return r.location == NSNotFound;
 }
 
++ (BOOL) isBencodeString:(NSString *)str {
+    NSArray* strComponents = [str componentsSeparatedByString:@":"];
+    NSString* strLength = strComponents[0];
+    NSString* strContent = strComponents[1];
+    
+    if (![Bencode isNumber:strLength] || [strContent length] != [strLength integerValue]) {
+        return NO;
+    }
+    return YES;
+}
+
++ (BOOL) isBencodeInteger:(NSString *)str {
+    NSString* firstChar = [str substringToIndex:1];
+    NSString* lastChar = [str substringFromIndex:[str length] - 1];
+    NSString* benInt = [str substringWithRange:NSMakeRange(1, [str length] - 1)];
+    if (![firstChar isEqualToString:@"i"] ||
+        ![lastChar isEqualToString:@"e"] ||
+        ![Bencode isNumber:benInt]) {
+        return NO;
+    }
+    return YES;
+}
+
 + (NSString*) decodeString:(NSString *)str {
     NSArray* strComponents = [str componentsSeparatedByString:@":"];
     NSString* strLength = strComponents[0];
