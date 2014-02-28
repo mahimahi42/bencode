@@ -13,8 +13,11 @@
 @implementation BencodeTester
 
 + (BOOL) testStringDecode {
-    
-    return NO;
+    NSString* sampleString = @"4:spam";
+    NSString* correctString = @"spam";
+    Bencode* b = [[Bencode alloc] init];
+    NSString* testString = [b decodeString:sampleString];
+    return [correctString isEqualToString:testString];
 }
 
 + (void) runTests {
