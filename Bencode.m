@@ -34,4 +34,9 @@
     return strContent;
 }
 
++ (NSInteger) decodeInteger:(NSString *)str {
+    
+    return 0;
+}
+
 @end

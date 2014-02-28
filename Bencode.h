@@ -11,5 +11,6 @@
 @interface Bencode : NSObject
 
 + (NSString*) decodeString:(NSString*) str;
++ (NSInteger) decodeInteger:(NSString*) str;
 
 @end
