@@ -13,6 +13,7 @@
 
 + (BOOL) testStringDecode;
 + (BOOL) testIntegerDecode;
++ (BOOL) testListDecode;
 
 + (void) runTests;
 

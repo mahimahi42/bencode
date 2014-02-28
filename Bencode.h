@@ -12,5 +12,6 @@
 
 + (NSString*) decodeString:(NSString*) str;
 + (NSInteger) decodeInteger:(NSString*) str;
++ (NSArray*) decodeList:(NSString*) str;
 
 @end

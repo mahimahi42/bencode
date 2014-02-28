@@ -26,6 +26,13 @@
     return correctInt == testInt ? YES : NO;
 }
 
++ (BOOL) testListDecode {
+    NSString* sampleString = @"l4:spami42ee";
+    NSArray* correctList = @[@"spam", @42];
+    NSArray* testList = [Bencode decodeList:sampleString];
+    return [correctList isEqualToArray:testList];
+}
+
 + (void) runTests {
     NSLog(@"Bencode Test Suite (Sounds fancy huh?)");
     NSLog(@"--------------------------------------\n");
@@ -33,6 +40,8 @@
           LogBool([BencodeTester testStringDecode]));
     NSLog(@"Integer Decoding Working?: %@",
           LogBool([BencodeTester testIntegerDecode]));
+    NSLog(@"List Decoding Working?: %@",
+          LogBool([BencodeTester testListDecode]));
 }
 
 @end

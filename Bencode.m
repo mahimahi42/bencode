@@ -41,6 +41,11 @@
     if ([firstChar isEqualToString:@"i"] && [lastChar isEqualToString:@"e"]) {
         return benInt;
     }
+    return 0;
+}
+
++ (NSArray*) decodeList:(NSString *)str {
+    
     return nil;
 }
 
