@@ -11,6 +11,7 @@
 		02C699DC18C00CAA00859935 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C699DB18C00CAA00859935 /* main.m */; };
 		02C699E018C00CAA00859935 /* bencode.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02C699DF18C00CAA00859935 /* bencode.1 */; };
 		02C699E818C00DCE00859935 /* Bencode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C699E718C00DCE00859935 /* Bencode.m */; };
+		02C699EB18C016F500859935 /* BencodeTester.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C699EA18C016F500859935 /* BencodeTester.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		02C699DF18C00CAA00859935 /* bencode.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = bencode.1; sourceTree = "<group>"; };
 		02C699E618C00DCE00859935 /* Bencode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bencode.h; sourceTree = "<group>"; };
 		02C699E718C00DCE00859935 /* Bencode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bencode.m; sourceTree = "<group>"; };
+		02C699E918C016F500859935 /* BencodeTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BencodeTester.h; sourceTree = "<group>"; };
+		02C699EA18C016F500859935 /* BencodeTester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BencodeTester.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,8 @@
 		02C699CC18C00CAA00859935 = {
 			isa = PBXGroup;
 			children = (
+				02C699E918C016F500859935 /* BencodeTester.h */,
+				02C699EA18C016F500859935 /* BencodeTester.m */,
 				02C699E618C00DCE00859935 /* Bencode.h */,
 				02C699E718C00DCE00859935 /* Bencode.m */,
 				02C699DA18C00CAA00859935 /* bencode */,
@@ -144,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C699EB18C016F500859935 /* BencodeTester.m in Sources */,
 				02C699E818C00DCE00859935 /* Bencode.m in Sources */,
 				02C699DC18C00CAA00859935 /* main.m in Sources */,
 			);
