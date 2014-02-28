@@ -55,10 +55,34 @@
 + (NSArray*) decodeList:(NSString *)str {
     NSString* firstChar = [str substringToIndex:1];
     NSString* lastChar = [str substringFromIndex:[str length] - 1];
+    NSMutableArray* arr = [[NSMutableArray alloc] init];
     if (![firstChar isEqualToString:@"l"] || ![lastChar isEqualToString:@"e"]) {
         return nil;
     }
-    return nil;
+    return [Bencode parseList:str
+                     withList:arr];
+}
+
++ (NSArray*) parseList:(NSString*)str withList:(NSMutableArray*)arr {
+    if ([str length] == 0) {
+        return [arr copy];
+    }
+    NSString* firstChar = [str substringToIndex:1];
+    if ([firstChar isEqualToString:@"i"]) {
+        int index = 1;
+        while ([str characterAtIndex:index] != 'e') {
+            index++;
+        }
+        NSInteger benInt = [[str substringWithRange:NSMakeRange(1, index)] integerValue];
+        [arr addObject:[NSNumber numberWithInt:benInt]];
+        [Bencode parseList:[str substringFromIndex:index]
+                  withList:arr];
+    } else {
+        [Bencode parseList:[str substringFromIndex:1]
+                  withList:arr];
+    }
+    
+    return [arr copy];
 }
 
 @end

@@ -27,8 +27,8 @@
 }
 
 + (BOOL) testListDecode {
-    NSString* sampleString = @"l4:spami42ee";
-    NSArray* correctList = @[@"spam", @42];
+    NSString* sampleString = @"li42ei123ee";
+    NSArray* correctList = @[@42, @123];
     NSArray* testList = [Bencode decodeList:sampleString];
     return [correctList isEqualToArray:testList];
 }
