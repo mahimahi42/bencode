@@ -8,6 +8,8 @@
 
 #import "BencodeTester.h"
 
+#define LogBool(BOOL) ((BOOL==YES)?@"YES":@"NO")
+
 @implementation BencodeTester
 
 + (BOOL) testStringDecode {
@@ -18,7 +20,7 @@
 + (void) runTests {
     NSLog(@"Bencode Test Suite (Sounds fancy huh?)");
     NSLog(@"--------------------------------------\n\n");
-    NSLog(@"String Decoding Working?: %d", [BencodeTester testStringDecode]);
+    NSLog(@"String Decoding Working?: %@", LogBool([BencodeTester testStringDecode]));
 }
 
 @end
