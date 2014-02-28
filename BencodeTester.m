@@ -16,7 +16,9 @@
 }
 
 + (void) runTests {
-    
+    NSLog(@"Bencode Test Suite (Sounds fancy huh?)");
+    NSLog(@"--------------------------------------\n\n");
+    NSLog(@"String Decoding Working?: %d", [BencodeTester testStringDecode]);
 }
 
 @end
