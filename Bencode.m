@@ -11,9 +11,24 @@
 @implementation Bencode
 
 - (NSString*) decodeString:(NSString *)str {
-    NSString* retStr = @"";
+    NSString* retStr;
     
-    return retStr;
+    NSError* errRegex = NULL;
+    NSRegularExpression* regex = [NSRegularExpression
+                                  regularExpressionWithPattern:@"([\\d]+):[\\w]{$1}"
+                                  options:NSRegularExpressionCaseInsensitive
+                                  error:&errRegex];
+    
+    NSTextCheckingResult* searchStr = [regex firstMatchInString:str
+                                             options:0
+                                             range:NSMakeRange(0, [str length])];
+    retStr = [str substringWithRange:searchStr.range];
+    
+    if ([retStr isEqualToString:str]) {
+        return retStr;
+    }
+    
+    return nil;
 }
 
 @end
