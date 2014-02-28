@@ -15,8 +15,7 @@
 + (BOOL) testStringDecode {
     NSString* sampleString = @"4:spam";
     NSString* correctString = @"spam";
-    Bencode* b = [[Bencode alloc] init];
-    NSString* testString = [b decodeString:sampleString];
+    NSString* testString = [Bencode decodeString:sampleString];
     return [correctString isEqualToString:testString];
 }
 

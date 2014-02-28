@@ -8,10 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Bencode : NSObject {
-    NSString* bencodeString;
-}
+@interface Bencode : NSObject
 
-- (NSString*) decodeString:(NSString*) str;
++ (NSString*) decodeString:(NSString*) str;
 
 @end

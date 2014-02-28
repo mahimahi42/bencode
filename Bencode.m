@@ -10,29 +10,13 @@
 
 @implementation Bencode
 
-- (BOOL) isNumber:(NSString *)str {
++ (BOOL) isNumber:(NSString *)str {
     NSCharacterSet* nonNums = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     NSRange r = [str rangeOfCharacterFromSet:nonNums];
     return r.location == NSNotFound;
 }
 
-- (NSString*) decodeString:(NSString *)str {    
-//    NSError* errRegex = NULL;
-//    NSRegularExpression* regex = [NSRegularExpression
-//                                  regularExpressionWithPattern:@"([\\d]+):[\\w]{$1}"
-//                                  options:NSRegularExpressionCaseInsensitive
-//                                  error:&errRegex];
-//    
-//    NSTextCheckingResult* searchStr = [regex firstMatchInString:str
-//                                             options:0
-//                                             range:NSMakeRange(0, [str length])];
-//    retStr = [str substringWithRange:searchStr.range];
-//    
-//    NSLog(@"ArgStr: %@ RetStr: %@", str, retStr);
-//    
-//    if ([retStr isEqualToString:str]) {
-//        return retStr;
-//    }
++ (NSString*) decodeString:(NSString *)str {
     NSArray* strComponents = [str componentsSeparatedByString:@":"];
     NSString* strLength = strComponents[0];
     NSString* strContent = strComponents[1];
