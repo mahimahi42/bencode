@@ -20,8 +20,10 @@
 }
 
 + (BOOL) testIntegerDecode {
-    
-    return NO;
+    NSString* sampleString = @"i42e";
+    NSInteger correctInt = 42;
+    NSInteger testInt = [Bencode decodeInteger:sampleString];
+    return correctInt == testInt ? YES : NO;
 }
 
 + (void) runTests {
