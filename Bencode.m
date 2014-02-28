@@ -37,10 +37,11 @@
 + (NSInteger) decodeInteger:(NSString *)str {
     NSString* firstChar = [str substringToIndex:1];
     NSString* lastChar = [str substringFromIndex:[str length] - 1];
-    if ([firstChar isEqualToString:@"i"] && [lastChar isEqualToString:@"e"] && [Bencode isNumber:[str substringWithRange:NSMakeRange(1, [str length] - 1)]]) {
-        return [[str substringWithRange:NSMakeRange(1, [str length] - 1)] integerValue];
+    NSInteger benInt = [[str substringWithRange:NSMakeRange(1, [str length] - 1)] integerValue];
+    if ([firstChar isEqualToString:@"i"] && [lastChar isEqualToString:@"e"]) {
+        return benInt;
     }
-    return 0;
+    return nil;
 }
 
 @end
