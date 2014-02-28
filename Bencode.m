@@ -30,41 +30,26 @@
 + (BOOL) isBencodeInteger:(NSString *)str {
     NSString* firstChar = [str substringToIndex:1];
     NSString* lastChar = [str substringFromIndex:[str length] - 1];
-    NSString* benInt = [str substringWithRange:NSMakeRange(1, [str length] - 1)];
     if (![firstChar isEqualToString:@"i"] ||
-        ![lastChar isEqualToString:@"e"] ||
-        ![Bencode isNumber:benInt]) {
+        ![lastChar isEqualToString:@"e"]) {
         return NO;
     }
     return YES;
 }
 
 + (NSString*) decodeString:(NSString *)str {
+    if (![Bencode isBencodeString:str]) {
+        return nil;
+    }
     NSArray* strComponents = [str componentsSeparatedByString:@":"];
-    NSString* strLength = strComponents[0];
-    NSString* strContent = strComponents[1];
-    
-    if (![self isNumber:strLength]) {
-        return nil;
-    }
-    
-    NSInteger strLen = [strLength integerValue];
-    
-    if (strLen != [strContent length]) {
-        return nil;
-    }
-    
-    return strContent;
+    return strComponents[1];
 }
 
 + (NSInteger) decodeInteger:(NSString *)str {
-    NSString* firstChar = [str substringToIndex:1];
-    NSString* lastChar = [str substringFromIndex:[str length] - 1];
-    NSInteger benInt = [[str substringWithRange:NSMakeRange(1, [str length] - 1)] integerValue];
-    if ([firstChar isEqualToString:@"i"] && [lastChar isEqualToString:@"e"]) {
-        return benInt;
+    if (![Bencode isBencodeInteger:str]) {
+        return 0;
     }
-    return 0;
+    return [[str substringWithRange:NSMakeRange(1, [str length] - 1)] integerValue];
 }
 
 + (NSArray*) decodeList:(NSString *)str {
