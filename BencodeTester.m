@@ -19,10 +19,18 @@
     return [correctString isEqualToString:testString];
 }
 
++ (BOOL) testIntegerDecode {
+    
+    return NO;
+}
+
 + (void) runTests {
     NSLog(@"Bencode Test Suite (Sounds fancy huh?)");
-    NSLog(@"--------------------------------------\n\n");
-    NSLog(@"String Decoding Working?: %@", LogBool([BencodeTester testStringDecode]));
+    NSLog(@"--------------------------------------\n");
+    NSLog(@"String Decoding Working?: %@",
+          LogBool([BencodeTester testStringDecode]));
+    NSLog(@"Integer Decoding Working?: %@",
+          LogBool([BencodeTester testIntegerDecode]));
 }
 
 @end

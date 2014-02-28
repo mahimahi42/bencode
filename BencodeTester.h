@@ -12,6 +12,7 @@
 @interface BencodeTester : NSObject
 
 + (BOOL) testStringDecode;
++ (BOOL) testIntegerDecode;
 
 + (void) runTests;
 
